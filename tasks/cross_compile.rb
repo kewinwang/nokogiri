@@ -149,4 +149,6 @@ HOE.clean_globs += [
   "tmp/#{HOST}",
 ]
 
-task :cross => ["cross:libxslt", "lib/nokogiri/nokogiri.rb", "cross:file_list"]
+task :cross => ["cross:libxslt", "lib/nokogiri/nokogiri.rb"] do
+  Rake::Task["cross:file_list"].invoke
+end
